@@ -1,0 +1,59 @@
+#mainContainer {
+	margin-top: 100px;
+}
+
+#mealContainer {
+	border: 1px solid black;
+	height: 255px;
+	width: 350px;
+}
+
+#chargeContainer {
+	border: 1px solid black;
+	height: 120px;
+	width: 350px;
+}
+
+#earningsContainer {
+	border: 1px solid black;
+	height: 120px;
+	width: 350px;
+}
+
+.container {
+	width: 100%;
+}
+
+.userInput {
+	display: inline-block;
+	padding: 10px;
+	height: 10px;
+}
+
+.title {
+	padding-left: 500px;
+	font-size: 20px;
+	font-style: bold;
+}
+
+.splitContainer {
+	display: inline-block;
+	float: left;
+	padding : 10px;
+}
+
+.center {
+	padding-left: 280px;
+}
+
+.error {
+	color: red;
+	font-style: bold;
+}
+
+.box {
+	text-align: center;
+	border-bottom: 1px solid black;
+	height: 20px;
+	width: 100%;
+}

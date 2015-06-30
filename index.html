@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <title>Wait Staff Calculator</title>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.10/angular-messages.js"></script>
+    <script src="controller/staffcalculator.js"></script>
+  </head>
+  <body ng-controller="waitStaffCalculator">
+    <span class="title"> Wait Staff Calculator </span>
+  	<div id="mainContainer">
+      <span class="center splitContainer">
+    		  <div id="mealContainer">
+    			<form name="mealDetailsForm" ng-submit="mealDetailsForm.$valid && submit();" novalidate>
+            <div class="container box"><strong>Enter the meal details</strong></div>
+            <div class="container">
+    				  <span class="userInput"><label for="basePrice">Base Meal Price: $</label></span>
+    				  <span class="userInput"><input type="number" name="basePrice" required ng-model="basePrice"></input></span>
+            </div>
+            <div class="container">
+    				  <span class="userInput"><label for="taxRate">Tax Rate: %</label></span>
+    				  <span class="userInput"><input type="number" name="taxRate" required ng-model="taxRate"></input></span>
+            </div>
+            <div class="container">
+    				  <span class="userInput"><label for="tipPercentage">Tip Percentage: %</label></span>
+    				  <span class="userInput"><input type="number" name="tipPercentage" required ng-model="tipPercentage"></input></span>
+            </div>
+            <div class="container">
+               <span class="userInput"><input type="submit" value="submit" id="sbtBtn"></input></span>
+               <span class="userInput"><input type="button" value="cancel" id="cancelBtn" ng-click="cancelForm()"></input></span>
+            </div>
+    			</form>
+          <br/>
+          <div ng-if="mealDetailsForm.$submitted" ng-messages="mealDetailsForm.basePrice.$error">
+            <span class="error" ng-message="required">Base price is required!</span>
+            <span class="error" ng-message="number">Base price to be a number</span>
+          </div>
+          <div ng-if="mealDetailsForm.$submitted" ng-messages="mealDetailsForm.taxRate.$error">
+            <span class="error" ng-message="required">Tax rate is required!</span>
+            <span class="error" ng-message="number">Tax rate to be a number</span>
+          </div>
+          <div ng-if="mealDetailsForm.$submitted" ng-messages="mealDetailsForm.tipPercentage.$error">
+            <span class="error" ng-message="required">Tip percentage is required!</span>
+            <span class="error" ng-message="number">Tax rate to be a number</span>
+          </div>
+    		</div>
+      </span>
+      <span class="splitContainer">
+        <div id="chargeContainer">
+          <div class="container box"><strong>Customer Charges</strong></div>
+          <div class="container">
+              <span class="userInput"><label for="subTotal">Sub Total: </label></span>
+              <span class="userInput"><input type="text" name="subTotal" ng-model="subTotal"></input></span>
+          </div>
+          <div class="container">
+              <span class="userInput"><label for="tip">Tip:</label></span>
+              <span class="userInput"><input type="text" name="tip" ng-model="tip"></input></span>
+          </div>
+    		</div>
+        <br/>
+    		<div id="earningsContainer">
+          <div class="container box"><strong>My Earnings Info</strong></div>
+          <div class="container">
+              <span class="userInput"><label for="tipTotal">Tip Total: </label></span>
+              <span class="userInput"><input type="text" name="tipTotal" ng-model="tipTotal"></input></span>
+          </div>
+          <div class="inputContainer">
+              <span class="userInput"><label for="mealCount">Meal Count: </label></span>
+              <span class="userInput"><input type="text" name="mealCount" ng-model="mealCount"></input></span>
+          </div>
+          <div class="inputContainer">
+              <span class="userInput"><label for="avgTip">Average tip for meal: </label></span>
+              <span class="userInput"><input type="text" name="avgTip" ng-model="avgTip"></input></span>
+          </div>
+      	</div>
+        <br/>
+         <input type="submit" value="reset" ng-click="resetForm();"></input>
+      </span>
+  	</div>
+  </body>
+ </html>
